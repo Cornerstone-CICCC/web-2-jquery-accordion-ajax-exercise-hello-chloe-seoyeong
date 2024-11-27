@@ -2,11 +2,24 @@ $(function() {
   // your code here
   // Exercise 1
   $('.accordion-header').on('click', function() {
-    $('.accordion-content').slideUp();
-    $(this).next().slideDown();
-  });
+    // const target = $(this).next();
 
-  // Exercise 2
+    // if($('.accordion-content').is(":hidden")) {
+    //   $('.accordion-content').slideUp();
+    //   if(target.is(":hidden")) {
+    //     target.slideDown();
+    //   } else {
+    //     target.slideUp();
+    //   }
+    // }
+
+    if($('.accordion h3').not(this).next().is(':hidden')) {
+      $('.accordion h3').not(this).next().slideUp();
+    };
+    $(this).next().slideToggle();
+
+  });
+    // Exercise 2
   $('.todos').find('button').on('click', function() {
     $.ajax({
       url: 'https://dummyjson.com/todos',
